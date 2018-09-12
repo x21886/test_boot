@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.Map;
  * 消息
  * Created by x1505 on 2018/3/19 0019.
  */
-@Controller
+@RestController
 @RequestMapping(value = "/index",produces = "application/json;charset=UTF-8")
 public class MsgController {
     @Autowired
@@ -33,7 +34,6 @@ public class MsgController {
      * @return
      */
     @RequestMapping(value = "get_msg_list")
-    @ResponseBody
     public Map<String,Object> get_msg_list(String type,String page_no,String page_size,String user_id){
         Map<String,Object> map=new HashMap<String,Object>();
         if(StringUtils.isEmpty(user_id)){
